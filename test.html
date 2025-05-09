@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML with External JS</title>
+    <title>Increment Number</title>
     <style>
-        /* Basic styling for the container */
-        #container {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            min-height: 50px; /* Give it some height initially */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* Center content vertically */
+            background-color: #f0f0f0;
         }
 
-        /* Styling for the element that will be created by test.js */
-        .created-element {
-            background-color: lightblue; /* Changed color for distinction */
-            padding: 10px;
-            margin-top: 10px;
+        #numberDisplay {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
             border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <h1>My First Heading</h1>
+    <h1>Number Counter</h1>
 
-    <p>My first paragraph.</p>
+    <p id="numberDisplay">0</p>
 
-    <div id="container">
-        </div>
+    <button id="incrementButton">Increase Number</button>
 
     <script src="./test.js"></script>
 
