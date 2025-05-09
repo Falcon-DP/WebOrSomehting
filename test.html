@@ -1,12 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML with External JS</title>
+    <style>
+        /* Basic styling for the container */
+        #container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            min-height: 50px; /* Give it some height initially */
+        }
+
+        /* Styling for the element that will be created by test.js */
+        .created-element {
+            background-color: lightblue; /* Changed color for distinction */
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
 <body>
 
-<h1>My First Heading</h1>
+    <h1>My First Heading</h1>
 
-<p>My first paragraph.</p>
+    <p>My first paragraph.</p>
 
-<script src="./test.js"><script>
+    <div id="container">
+        </div>
+
+    <script src="./test.js"></script>
 
 </body>
 </html>
-
