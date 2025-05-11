@@ -7,21 +7,55 @@
     <style>
         body {
             font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
+            /* We'll use a container for the groups, so remove flex from body */
+            /* display: flex; */
+            /* flex-direction: column; */
             align-items: center;
             justify-content: center;
-            min-height: 80vh; /* Center content vertically */
+            min-height: 80vh;
             background-color: #f0f0f0;
+            margin: 0; /* Remove default body margin */
+            padding: 20px; /* Add some padding */
         }
 
-        #numberDisplay {
+        /* New container for all counter groups */
+        .counters-container {
+            display: flex; /* Use flexbox to put groups side-by-side */
+            flex-wrap: wrap; /* Allow items to wrap to the next line if space is limited */
+            gap: 40px; /* Space between each counter group */
+            justify-content: center; /* Center the groups if there's extra space */
+        }
+
+        /* Container for each individual counter */
+        .counter-group {
+            display: flex; /* Use flexbox to arrange items within the group */
+            flex-direction: column; /* Stack items vertically within the group */
+            align-items: center; /* Center items horizontally within the group */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 150px; /* Give groups a minimum width */
+            text-align: center; /* Center text within the group */
+        }
+
+        .counter-group h2 {
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .counter-group #numberDisplay1,
+        .counter-group #numberDisplay2 /* Apply style to both displays */
+         {
             font-size: 3em;
             margin-bottom: 20px;
             color: #333;
+            /* Remove original #numberDisplay margin */
+            /* margin-bottom: 20px; */
         }
 
-        button {
+        .counter-group button {
             padding: 10px 20px;
             font-size: 1.2em;
             cursor: pointer;
@@ -30,27 +64,44 @@
             background-color: #007bff;
             color: white;
             transition: background-color 0.3s ease;
+            /* Remove original button margin */
         }
 
         button:hover {
             background-color: #0056b3;
         }
+
+        @keyframes moveupanddown {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(var(--move-distance, 20px));
+            }
+            100% {
+                transform: translateY(0);
+            }
+            
+        }
     </style>
 </head>
 <body>
 
-    <h1>Number Counter</h1>
 
-    <p id="numberDisplay1">0</p>
+    <div class="counters-container" style="--move-distance: -20px; animation: moveupanddown 2s infinite;">
+        <div class="counter-group">
+            <h2>Number Counter 1</h2>
+            <p id="numberDisplay1">0</p>
+            <button id="incrementButton1">Increase Number</button>
+        </div>
 
-    <button id="incrementButton1">Increase Number</button>
+        <div class="counter-group" style="animation: moveupanddown 1s infinite;">
+            <h2 style="--move-distance: 30px; animation: moveupanddown 1s infinite;" >Number Counter 2</h2>
+            <p id="numberDisplay2">0</p>
+            <button id="incrementButton2">Increase Number</button>
+        </div>
 
-    <h2>Number Counter</h2>
-
-    <p id="numberDisplay2">0</p>
-
-    <button id="incrementButton2">Increase Number</button>
-
+        </div>
 
 
     <script src="./something.js"></script>
